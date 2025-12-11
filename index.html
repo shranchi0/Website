@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fff;
+            --text: #111;
+            --text-secondary: #666;
+            --text-muted: #999;
+            --border: #eee;
+            --accent-purple: #8A5CAC;
+            --accent-coral: #E5686F;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        main {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 40px;
+        }
+
+        .name {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .name a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent-purple);
+        }
+
+        .thesis {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        section {
+            margin-bottom: 36px;
+        }
+
+        .list {
+            list-style: none;
+        }
+
+        .list li {
+            font-size: 15px;
+            margin-bottom: 4px;
+            line-height: 1.6;
+        }
+
+        .list a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .list a:hover {
+            color: var(--accent-purple);
+        }
+
+        .role {
+            display: none;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-left: 8px;
+        }
+
+        .list li:hover .role {
+            display: inline;
+        }
+
+        .contact-link {
+            font-size: 14px;
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-link:hover {
+            color: var(--accent-purple);
+        }
+
+        @media (max-width: 600px) {
+            main {
+                padding: 60px 20px;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .thesis {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header class="header">
+            <h1 class="name"><a href="/">Category</a></h1>
+            <nav>
+                <a href="/portfolio.html">Portfolio</a>
+                <a href="/blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <p class="thesis">
+            Category Ventures supports exceptional technical founders building category defining software startups at the earliest stages.
+        </p>
+
+        <section>
+            <p class="section-label">Team</p>
+            <ul class="list">
+                <li><a href="#">Villi Iltchev</a><span class="role">Founder & Managing Partner</span></li>
+                <li><a href="#">Çağla Kaymaz</a><span class="role">Partner</span></li>
+                <li><a href="#">Shri Kolanukuduru</a><span class="role">Investing Partner</span></li>
+                <li><a href="#">Patty Smith</a><span class="role">Operating Partner</span></li>
+                <li><a href="#">Ruta Savickaite</a><span class="role">Executive Assistant & Office Manager</span></li>
+            </ul>
+        </section>
+
+        <section>
+            <p class="section-label">Contact</p>
+            <a href="mailto:build@categoryvc.com" class="contact-link">build@categoryvc.com</a>
+        </section>
+    </main>
+</body>
+</html>
