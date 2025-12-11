@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On (the future of) Git — Category Ventures</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fff;
+            --text: #111;
+            --text-secondary: #666;
+            --text-muted: #999;
+            --border: #eee;
+            --accent-purple: #8A5CAC;
+            --accent-coral: #E5686F;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        main {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 40px;
+        }
+
+        .name {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .name a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent-purple);
+        }
+
+        .article-header {
+            margin-bottom: 32px;
+        }
+
+        .article-title {
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .article-meta {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .article-content {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+        }
+
+        .article-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 32px 0 16px 0;
+        }
+
+        .article-content code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        .article-content a {
+            color: var(--accent-purple);
+            text-decoration: none;
+        }
+
+        .article-content a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 48px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: var(--accent-purple);
+        }
+
+        @media (max-width: 600px) {
+            main {
+                padding: 60px 20px;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .article-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header class="header">
+            <h1 class="name"><a href="/">Category</a></h1>
+            <nav>
+                <a href="/portfolio.html">Portfolio</a>
+                <a href="/blog.html">Blog</a>
+            </nav>
+        </header>
+
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">On (the future of) Git</h1>
+                <div class="article-meta">
+                    Published on Jul 10, 2025 · Written by Shri Kolanukuduru
+                </div>
+            </div>
+
+            <div class="article-content">
+                <h3>The Semantic Chasm in a Text-Based World</h3>
+                <p>Any developer who has navigated a complex merge conflict has felt the chasm between their logical intent and the textual reality that version control systems manage. Git, for all its power, is a master of text, not meaning. This foundational principle, once a source of elegant simplicity, is starting to feel like a bottleneck.</p>
+
+                <p>Take a straightforward refactoring example: an AI agent renames a utility function from <code>utils.get_user()</code> to <code>auth.fetch_profile()</code> and updates all 15 references across the codebase. For a developer, this is logically one atomic action. For Git, however, it's numerous unrelated text changes, creating unnecessary friction and merge complexity.</p>
+
+                <p>This isn't just an inconvenience; it's a fundamental conflict between how modern tools think and how our foundational tools work. As we enter an era where agents can write, refactor, and ship code at scale, Git's text-centric model is on a collision course with agents that operate on the abstract syntax tree (AST in this piece) and the semantic meaning of code.</p>
+
+                <h3>From Textual Reconciliation to Semantic Merging</h3>
+                <p>At its heart, Git is a content-addressable filesystem — a remarkably efficient model for tracking changes in text. Its content-agnostic design, however, means it has no intrinsic understanding of code structure. It cannot discern that renaming a function's parameters is one logical operation, instead registering it as a series of unrelated line changes. For a human developer, this is a manageable annoyance. For an agent attempting to reconcile its work with a human's concurrent changes, it's a source of constant, unnecessary merge conflicts.</p>
+
+                <p>This has spurred the creation of a new, essential semantic layer. The first step in this evolution is the structural diff tool. Tools like <code>difftastic</code> use AST parsing to compare code based on its structure, not just its text. They intelligently ignore whitespace or comment changes and can represent a function rename as what it is: a single, comprehensible modification.</p>
+
+                <p>But this only scratches the surface. The deeper challenge lies in building true semantic awareness into the conflict resolution process itself. This isn't a hypothetical future; it's an active field of development. For years, tools like <code>SemanticMerge</code> have offered language-aware three-way merging. They parse the code to identify refactors, moved methods, and other changes, allowing developers to resolve conflicts at a logical level. This is the jump from textual reconciliation to true semantic merging, enabling a future where a version control system can reason: "The agent's goal was to rename <code>get_user</code>. The human's goal was to add a new parameter to it. I will apply both changes to the new function, <code>auth.fetch_profile</code>."</p>
+
+                <h3>Signal vs. Noise: Curating the Agent-Generated Commit History</h3>
+                <p>A (sort of) tension emerges around the integrity of version history. This is best illustrated by contrasting two modern workflows. A developer using Cursor still acts as the primary author, leveraging a model for generation and refactoring but ultimately crafting their own clean, descriptive commits, thus preserving the "signal" of intent.</p>
+
+                <p>In stark contrast, an autonomous agent like Devin might be given a high-level task and work for hours, generating hundreds of internal micro-steps (explorations, tests, and corrections). Its final contribution could be a single, massive pull request that represents the squashed sum of that chaotic work. For a human reviewer, this "noise" makes identifying a subtle regression a needle-in-a-haystack problem, rendering the commit history almost useless for auditing or debugging. The solution is clearly not to abandon automated agents, but to demand they adhere to human-centric standards. That is, I think something like an "agent-curated history" is essential.</p>
+
+                <p>In modern CI/CD, tools like <code>semantic-release</code> already automate versioning from structured commit messages. This concept can be inverted for agents: a higher-level system must observe an agent's workflow, then squash and synthesize its micro-commits into a single, coherent message that describes the feature or fix. This isn't reinventing the wheel; it's targeting existing standards like Conventional Commits (<code>feat:</code>, <code>fix:</code>, <code>refactor:</code>). The ability for an agent to produce a clean, machine-readable commit will become a non-negotiable requirement for its adoption in any serious engineering organization.</p>
+
+                <h3>The Architectural Path: Git as a Kernel and Control Plane</h3>
+                <p>This brings us to the core architectural question: should we evolve Git, layer intelligence on top of it, or rebuild from the ground up? While radical alternatives like <code>Pijul</code>, which uses a "theory of patches" to elegantly sidestep entire classes of merge conflicts, are theoretically appealing, Git's massive incumbency makes a ground-up replacement impractical.</p>
+
+                <p>The most pragmatic and proven path is the "Git as a kernel" model. When faced with the challenge of versioning large binaries and ML models, the community didn't abandon Git; it built powerful layers like Git LFS and DVC on top of it. These tools use Git to version lightweight pointers while storing the heavy assets elsewhere, proving that Git's core can serve as a robust foundation for specialized, high-level tooling.</p>
+
+                <p>This layered approach also reframes Git's role from a simple versioning tool to a critical control plane for AI governance. In this model, Git's own features become the non-negotiable API for managing agent collaborators. A pull request from Devin or Claude Code would be blocked by default via branch protection rules. Merging would only be permitted after a series of automated checks are passed: unit tests, security scans, and, crucially, a sign-off from a review agent like Graphite or Greptile. These AI reviewers, with their full-repository context, act as the semantic gatekeepers. This ensures that Git, augmented with these intelligent layers, becomes the final, trusted arbiter of quality, enforcing standards on human and agent contributors alike.</p>
+
+                <p>This layered evolution allows us to benefit from decades of investment in Git's stability and tooling while seamlessly integrating the semantic intelligence required for an agent-driven future. It's a pragmatic path that harnesses the elegance of new theories without forcing the entire industry to abandon the stable, universal foundation that Git provides. The future of version control isn't a replacement for Git; it's a smarter, semantic layer built upon it.</p>
+            </div>
+
+            <a href="/blog.html" class="back-link">← Back to Blog</a>
+        </article>
+    </main>
+</body>
+</html>
+
